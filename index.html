@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+	<head>
+        <base target="_blank">
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>WTFShouldIDoToday.com</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+        <style>
+        .bigtext{
+            font-size: 3em !important;
+        }
+        .left{
+            text-align: left !important;
+        }
+        </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+                <!------------------------->
+                <!-- Intro Slide ---------->
+                <!------------------------->
+				<section data-autoslide="3000" class="bigtext" data-transition-speed="slow" data-transition="fade-out">
+                    We are here to help you find something to do...
+                </section>
+
+				<section data-autoslide="7000" data-transition-speed="slow" data-transition="fade-out">
+                    <p>
+                            <h1>Just hit:</h1>
+                            <div>
+                                <ul  style="list-style-type: none;font-family:monospace;">
+                                    <li>'N' (or swipe right) for <span style="font-weight:bold">N</span>ext</li>
+                                    <li>'P' (or swipe left) for <span style="font-weight:bold">P</span>revious</li>
+                                    <li>'M' for <span style="font-weight:bold">M</span>aybe</li>
+                                    <li>'Y' for <span style="font-weight:bold">Y</span>es</li>
+                                </ul>
+                            </div>
+                    </p>
+                </section>
+
+				<section class="bigtext" data-autoslide="3000" data-transition-speed="slow" data-transition="fade-out">
+                    Have fun...
+                </section>
+
+                <!------------------------->
+                <!-- Runtime Slides ------->
+                <!------------------------->
+                <script>
+                    //var data = {messages:[ {'msg':'hi'}, {'msg':'Peter.'} ]};
+                    var ttd = [
+                        {'msg':'Study <a href="http://www.duolingo.com">your Spanish</a>'}, 
+                        {'msg':'Get something to eat'},
+                        {'msg':'Read <a href="https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316095">a book</a>'},
+                        {'msg':'Take a nap'},
+                        {'msg':'Play a video game'},
+                        {'msg':'Go for a walk'},
+                        {'msg':'Go for a jog'},
+                        {'msg':'Do <a href="http://hundredpushups.com/">some pushups</a>'},
+                        {'msg':'Read <a href="http://www.espn.com/">some ESPN</a>'},
+                        {'msg':'Read <a href="http://www.cnn.com/">some CNN</a>'},
+                        {'msg':'Watch <a href="http://www.democracynow.org/">some Democracy Now!</a>'},
+                        {'msg':'Take a <a href="http://www.lynda.com">class at Lynda.com</a>'},
+                        {'msg':'Take a <a href="http://www.coursera.com">class at Coursera.com</a>'},
+                        {'msg':'Check out some <a href="http://roundup.co/frontpages/">front pages</a>'},
+                        {'msg':'Read something that will <a href="http://www.bookforum.com/blog/">make you think</a>'},
+                        {'msg':'Look for <a href="http://www.ziprecruiter.com/">a new job</a>'},
+                        {'msg':'Watch <a href="http://www.netflix.com">some Netflix</a>'},
+                        {'msg':'Watch <a href="http://www.mubi.com">a Mubi</a>'},
+                        {'msg':'See for yourself <a href="http://https://www.youtube.com/watch?v=23tcoHFaWmo">what is going on at the UN</a>'},
+                        {'msg':'Get your <a href="http://www.deadspin.com">irreverent sports</a> on'},
+                        {'msg':'Do some curls'},
+                        {'msg':'Do some sit-ups'},
+                        {'msg':'<a href="https://www.headspace.com/">Meditate</a>'},
+                        {'msg':'Write down three things you are thankful for'},
+                        {'msg':'Watch <a href="https://www.youtube.com/watch?v=YkaqIujpcbw">Steph gonna Steph</a>'},
+                        //{'msg':'<a href="http://"></a>'},
+                        /* Last slide below */
+                        {'msg':'That\'s it -- that\'s all the ideas we have. <a href="mailto:psmithsf@gmail.com?subject=WTFShouldIDoRightNow: I have an idea...">Got one?</a>'},
+                        //{'msg':''},
+                    ];
+
+                    for (i = 0; i < ttd.length; i++) { 
+                        document.write('<section class="bigtext">'+ttd[i].msg+'</section>');
+                    }
+
+                </script>
+
+<!--
+    <p class="fragment visible">Hit the 'F' key for fullscreen mode...and 'ESC' to return...</p>
+    <p class="fragment grow">grow</p>
+    <p class="fragment shrink">shrink</p>
+    <p class="fragment fade-out">fade-out</p>
+    <p class="fragment fade-up">fade-up (also down, left and right!)</p>
+    <p class="fragment current-visible">visible only once</p>
+    <p class="fragment highlight-current-blue">blue only once</p>
+    <p class="fragment highlight-red">highlight-red</p>
+    <p class="fragment highlight-green">highlight-green</p>
+    <p class="fragment highlight-blue">highlight-blue</p>
+-->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                controls: false,
+                overview: false,
+                help: false,
+                mouseWheel: true,
+                transitionSpeed: 'fast',
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+
+            Reveal.configure({
+              keyboard: {
+                /*13: 'next', // go to the next slide when the ENTER key is pressed*/
+                  83: null, // do nothing with uppercase 's' (instead of 'screen' mode or whatever) 
+                //115: null, // do nothing with lowercase 's' (instead of 'screen' mode or whatever)
+                /*27: function() {}, // do something custom when ESC is pressed*/
+                /*32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)*/
+              }
+            });
+		</script>
+	</body>
+</html>
