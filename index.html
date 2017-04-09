@@ -23,6 +23,21 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
+        <script>
+            function shuffle (array) {
+              var i = 0
+                , j = 0
+                , temp = null
+
+              for (i = array.length - 1; i > 0; i -= 1) {
+                j = Math.floor(Math.random() * (i + 1))
+                temp = array[i]
+                array[i] = array[j]
+                array[j] = temp
+              }
+            }
+        </script>
+
         <style>
         .bigtext{
             font-size: 3em !important;
@@ -39,7 +54,7 @@
                 <!------------------------->
                 <!-- Intro Slide ---------->
                 <!------------------------->
-				<section data-autoslide="3000" class="bigtext" data-transition-speed="slow" data-transition="fade-out">
+                <section data-autoslide="3000" class="bigtext" data-transition-speed="slow" data-transition="fade-out">
                     We are here to help you find something to do...
                 </section>
 
@@ -143,9 +158,10 @@
                         {'msg':'Listen to an episode of <a href="http://www.espn.com/espnradio/podcast/archive/_/id/9545077">Jalen & Jacoby</a>'},
                         //{'msg':'<a href="http://"></a>'},
                         /* Last slide below */
-                        {'msg':'That\'s it -- that\'s all the ideas we have. <a href="mailto:psmithsf@gmail.com?subject=WTFShouldIDoRightNow: I have an idea...">Got one?</a>'},
                         //{'msg':''},
                     ];
+
+                    shuffle(ttd); // give it a random order
 
                     for (i = 0; i < ttd.length; i++) { 
                         document.write('<section class="bigtext">'+ttd[i].msg+'</section>');
@@ -153,18 +169,12 @@
 
                 </script>
 
-<!--
-    <p class="fragment visible">Hit the 'F' key for fullscreen mode...and 'ESC' to return...</p>
-    <p class="fragment grow">grow</p>
-    <p class="fragment shrink">shrink</p>
-    <p class="fragment fade-out">fade-out</p>
-    <p class="fragment fade-up">fade-up (also down, left and right!)</p>
-    <p class="fragment current-visible">visible only once</p>
-    <p class="fragment highlight-current-blue">blue only once</p>
-    <p class="fragment highlight-red">highlight-red</p>
-    <p class="fragment highlight-green">highlight-green</p>
-    <p class="fragment highlight-blue">highlight-blue</p>
--->
+                <!-- Final slide -->
+                <section class="bigtext">
+                    That's it -- that's all the ideas we have. 
+                    <a href="mailto:psmithsf@gmail.com?subject=WTFShouldIDoRightNow: I have an idea...">Got one?</a>
+                </section>
+
 			</div>
 		</div>
 
