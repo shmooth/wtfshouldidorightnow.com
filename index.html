@@ -36,6 +36,13 @@
                 array[j] = temp
               }
             }
+
+            document.onclick = function() {
+                if(Reveal.isReady()){
+                    //alert('gd');
+                    Reveal.right();
+                }
+            }
         </script>
 
         <style>
@@ -211,6 +218,13 @@
                 /*32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)*/
               }
             });
+
+            Reveal.addEventListener( 'ready', function( event ) {
+                // event.currentSlide, event.indexh, event.indexv
+                //alert('reveal is ready...');
+            } );
+
+
 		</script>
 	</body>
 </html>
