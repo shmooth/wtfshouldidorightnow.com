@@ -37,7 +37,34 @@
               }
             }
 
-            document.onclick = function() {
+            // we want to make sure regular links still work, tho...
+            function touchHandler(evt){
+                //alert('event is ' + evt);
+                //alert('touched');
+
+
+                // if a hyperlink was touched
+                if(evt.target.tagName.toLowerCase() === 'a')
+                {
+                    // do nothing, and don't advance to next slide/idea
+                    evt.stopPropagation();
+                    //alert('target is: ' + evt.target.href); //this is the url where the anchor tag points to.
+                }
+                else{
+                    // advance humankind
+                    Reveal.right();
+                }
+
+                //if(Reveal.isReady()){
+                    //alert('gd');
+                    //Reveal.right();
+                //}
+            }
+
+
+            document.onclick = function(evt) {
+                //alert(evt);
+
                 if(Reveal.isReady()){
                     //alert('gd');
                     Reveal.right();
@@ -61,10 +88,14 @@
                 <!------------------------->
                 <!-- Intro Slide ---------->
                 <!------------------------->
+
+<!--
                 <section data-autoslide="3000" class="bigtext" data-transition-speed="slow" data-transition="fade-out">
                     We are here to help you find something to do...
                 </section>
+-->
 
+<!--
 				<section data-autoslide="7000" data-transition-speed="slow" data-transition="fade-out">
                     <p>
                             <h1>Just hit:</h1>
@@ -72,18 +103,24 @@
                                 <ul  style="list-style-type: none;font-family:monospace;">
                                     <li>'N' (or swipe left) for <span style="font-weight:bold">N</span>ext</li>
                                     <li>'P' (or swipe right) for <span style="font-weight:bold">P</span>revious</li>
-                                    <!--
-                                    <li>'M' for <span style="font-weight:bold">M</span>aybe</li>
-                                    <li>'Y' for <span style="font-weight:bold">Y</span>es</li>
-                                    -->
+                                    //<li>'M' for <span style="font-weight:bold">M</span>aybe</li>
+                                    //<li>'Y' for <span style="font-weight:bold">Y</span>es</li>
                                 </ul>
                             </div>
                     </p>
                 </section>
+-->
 
+
+<!--
 				<section class="bigtext" data-autoslide="3000" data-transition-speed="slow" data-transition="fade-out">
                     Have fun...
                 </section>
+-->
+
+
+
+
 
                 <!------------------------->
                 <!-- Runtime Slides ------->
@@ -115,7 +152,6 @@
                         {'msg':'Antiwar news <a href="https://www.antiwar.com/">from a US-American-libertarian POV</a>'},
                         {'msg':'Take a <a href="http://www.coursera.com">class at Coursera.com</a>'},
                         {'msg':'Read <a href="https://bikesnobnyc.blogspot.com/">a funny bike blogger</a> <span style="font-size:.5em;">(who makes fun of bikers)</span>'},
-                        {'msg':'Check out some <a href="http://roundup.co/frontpages/">front pages</a>'},
                         {'msg':'Call your mom (or other friends / family)'},
                         {'msg':'<span style="font-size:.5em;">S**t your pants while checking out <a href="http://www.drudgereport.com/">the best front page on the internet</a></span> <span style="font-size:.5em;">(from the originator of fake news)</span>'},
                         {'msg':'Read something that will <a href="http://www.bookforum.com/blog/">make you think</a>'},
@@ -224,6 +260,8 @@
                 //alert('reveal is ready...');
             } );
 
+            // the third arg says use handler on 'capturing' phase vs. 'bubbling' phase
+            document.body.addEventListener('touchstart', touchHandler, false); 
 
 		</script>
 	</body>
