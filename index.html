@@ -223,11 +223,29 @@
 			</div>
 		</div>
 
-		<script src="https://raw.githubusercontent.com/hakimel/reveal.js/master/js/reveal.js"></script>
 
+		
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			//Reveal.initialize({
+				//hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				//plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			//});
+		</script>
+		
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				//hash: true,
 				history: true,
                 controls: false,
                 overview: false,
@@ -242,7 +260,8 @@
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
+				],
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 
             Reveal.configure({
@@ -264,5 +283,7 @@
             document.body.addEventListener('touchstart', touchHandler, false); 
 
 		</script>
+
+
 	</body>
 </html>
