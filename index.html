@@ -1,40 +1,268 @@
 <!doctype html>
-<html lang="en">
+<html>
 	<head>
+        <base target="_blank">
+
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>WTFShouldIDoRightNow.com</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+        <script>
+            function shuffle (array) {
+              var i = 0
+                , j = 0
+                , temp = null
+
+              for (i = array.length - 1; i > 0; i -= 1) {
+                j = Math.floor(Math.random() * (i + 1))
+                temp = array[i]
+                array[i] = array[j]
+                array[j] = temp
+              }
+            }
+
+            // we want to make sure regular links still work, tho...
+            function touchHandler(evt){
+                //alert('event is ' + evt);
+                //alert('touched');
+
+
+                // if a hyperlink was touched
+                if(evt.target.tagName.toLowerCase() === 'a')
+                {
+                    // do nothing, and don't advance to next slide/idea
+                    evt.stopPropagation();
+                    //alert('target is: ' + evt.target.href); //this is the url where the anchor tag points to.
+                }
+                else{
+                    // advance humankind
+                    Reveal.right();
+                }
+
+                //if(Reveal.isReady()){
+                    //alert('gd');
+                    //Reveal.right();
+                //}
+            }
+
+
+            document.onclick = function(evt) {
+                //alert(evt);
+
+                if(Reveal.isReady()){
+                    //alert('gd');
+                    Reveal.right();
+                }
+            }
+        </script>
+
+        <style>
+        .bigtext{
+            font-size: 3em !important;
+        }
+        .left{
+            text-align: left !important;
+        }
+        </style>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+                <!------------------------->
+                <!-- Intro Slide ---------->
+                <!------------------------->
+
+<!--
+                <section data-autoslide="3000" class="bigtext" data-transition-speed="slow" data-transition="fade-out">
+                    We are here to help you find something to do...
+                </section>
+-->
+
+<!--
+				<section data-autoslide="7000" data-transition-speed="slow" data-transition="fade-out">
+                    <p>
+                            <h1>Just hit:</h1>
+                            <div>
+                                <ul  style="list-style-type: none;font-family:monospace;">
+                                    <li>'N' (or swipe left) for <span style="font-weight:bold">N</span>ext</li>
+                                    <li>'P' (or swipe right) for <span style="font-weight:bold">P</span>revious</li>
+                                    //<li>'M' for <span style="font-weight:bold">M</span>aybe</li>
+                                    //<li>'Y' for <span style="font-weight:bold">Y</span>es</li>
+                                </ul>
+                            </div>
+                    </p>
+                </section>
+-->
+
+
+<!--
+				<section class="bigtext" data-autoslide="3000" data-transition-speed="slow" data-transition="fade-out">
+                    Have fun...
+                </section>
+-->
+
+
+
+
+
+                <!------------------------->
+                <!-- Runtime Slides ------->
+                <!------------------------->
+                <script>
+                    //var data = {messages:[ {'msg':'hi'}, {'msg':'Peter.'} ]};
+                    var ttd = [
+                        {'msg':'Study <a href="http://www.duolingo.com">your Spanish</a>'}, 
+                        {'msg':'Get something to eat'},
+                        {'msg':'Read <a href="https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316095">a book</a>'},
+                        {'msg':'Take a nap'},
+                        {'msg':'Play a video game'},
+                        {'msg':'Go for a walk'},
+                        {'msg':'See if there is anything interesting in <a href="http://news.google.com">Google News</a>'},
+                        {'msg':'Get your <a href="http://www.fark.com/">Fark on</a>'},
+                        {'msg':'Go shoot some hoops'},
+                        {'msg':'Need to get dumber? <a href="https://www.buzzfeed.com/">Go here</a>.'},
+                        {'msg':'Read what the techies <a href="http://techmeme.com/">are talking about</a>'},
+                        {'msg':'Go for a jog'},
+                        {'msg':'Do <a href="http://hundredpushups.com/">some pushups</a>'},
+                        {'msg':'Read <a href="http://www.espn.com/">some ESPN</a>'},
+                        {'msg':'Watch <a href="https://www.google.com/search?q=nba&oq=nba+&aqs=chrome.0.69i59j69i61j69i60l2j69i59l2.953j0j1&sourceid=chrome&ie=UTF-8">some basketball</a>'},
+                        {'msg':'Read <a href="http://www.cnn.com/">some CNN</a>'},
+                        {'msg':'Watch <a href="http://www.democracynow.org/">some Democracy Now!</a>'},
+                        {'msg':'Take a <a href="http://www.lynda.com">class at Lynda.com</a>'},
+                        {'msg':'<span style="text-decoration:line-through;">Do your taxes</span> Hit the bar'},
+                        {'msg':'Read about <a href="https://www.nytimes.com/section/well">wellness</a>'},
+                        {'msg':'Watch some <a href="http://www.oddtodd.com/index2.html">Odd Todd</a>'},
+                        {'msg':'Antiwar news <a href="https://www.antiwar.com/">from a US-American-libertarian POV</a>'},
+                        {'msg':'Take a <a href="http://www.coursera.com">class at Coursera.com</a>'},
+                        {'msg':'Read <a href="https://bikesnobnyc.blogspot.com/">a funny bike blogger</a> <span style="font-size:.5em;">(who makes fun of bikers)</span>'},
+                        {'msg':'Call your mom (or other friends / family)'},
+                        {'msg':'<span style="font-size:.5em;">S**t your pants while checking out <a href="http://www.drudgereport.com/">the best front page on the internet</a></span> <span style="font-size:.5em;">(from the originator of fake news)</span>'},
+                        {'msg':'Read something that will <a href="http://www.bookforum.com/blog/">make you think</a>'},
+                        {'msg':'Look for <a href="http://www.ziprecruiter.com/">a new job</a>'},
+                        {'msg':'Watch <a href="http://www.netflix.com">some Netflix</a>'},
+                        {'msg':'Read some <a href="http://www.memeorandum.com/">political news</a>'},
+                        {'msg':'Read about <a href="https://www.indivisibleguide.com/">how democracy actually works</a>'},
+                        {'msg':'What\'s the latest in <a href="http://www.techcrunch.com">tech bro business</a>?'},
+                        {'msg':'See what FAIR <a href="http://fair.org/">says about our poop stew media</a>'},
+                        {'msg':'Watch <a href="http://www.mubi.com">a Mubi</a>'},
+                        {'msg':'See for yourself <a href="https://www.youtube.com/watch?v=23tcoHFaWmo">what is going on at the UN</a>'},
+                        {'msg':'Get your <a href="http://www.deadspin.com">irreverent sports</a> on'},
+                        {'msg':'Want to feel bad about yourself? <a href="https://www.facebook.com/">Go here</a>.'},
+                        {'msg':'Listen to some <a href="https://stownpodcast.org/">Sâ€¢Town</a>?'},
+                        {'msg':'Do some curls'},
+                        {'msg':'Learn what the <a href="https://cirillocompany.de/pages/pomodoro-technique">Pomodoro Technique</a> is (then use it)'},
+                        {'msg':'See what the computer nerds <a href="https://news.ycombinator.com/">are talking about</a>'},
+                        {'msg':'Take a shower'},
+                        {'msg':'Political <a href="http://www.memeorandum.com/">roundup</a>'},
+                        {'msg':'Media <a href="http://mediagazer.com/">roundup</a>'},
+                        {'msg':'See what is on <a href="http://www.reddit.com">Reddit</a>'},
+                        {'msg':'Do some online shopping at <a href="https://www.amazon.com/">the place that will destroy us all</a>'},
+                        {'msg':'Go to <a href="https://www.applebees.com/">the best restaurant in America</a>'},
+                        {'msg':'Watch some (more) tv'},
+                        {'msg':'Hit the gym and <a href="http://hearye.rocks/">listen to some articles</a>'},
+                        {'msg':'See what\'s <a href="https://medium.com/topic/popular">popular on Medium</a>'},
+                        {'msg':'Watch <a href="http://roundup.co/livetv/">some state tv</a> from <em>other</em> countries'},
+                        {'msg':'Do some sit-ups'},
+                        {'msg':'Check out <a href="http://roundup.co/">a cool news aggregation site</a>'},
+                        {'msg':'<a href="https://www.craigslist.org/about/best/all">Best of Craigslist</a>'},
+                        {'msg':'<a href="https://www.headspace.com/">Meditate</a>'},
+                        {'msg':'Write down (ok, type up) three things you are thankful for'},
+                        {'msg':'Watch <a href="https://www.youtube.com/watch?v=YkaqIujpcbw">Steph gonna Steph</a>'},
+                        {'msg':'Take out the trash'},
+                        {'msg':'What does <a href="http://www.huffingtonpost.com/">Arianna/Uber have to say</a>?'},
+                        {'msg':'Walk the dog'},
+                        {'msg':'See what <a href="http://www.foxnews.com/">the psychopaths are lying about now</a>'},
+                        {'msg':'Go for a drive'},
+                        {'msg':'Hit the cafe and people-watch'},
+                        {'msg':'See what\'s up in <a href="http://www.streetsblog.org/">the livability and urban planning</a> scene'},
+                        {'msg':'Feed the cat'},
+                        {'msg':'Grocery store'},
+                        {'msg':'Find out about <a href="https://www.innocenceproject.org/about/">The Innocence Project</a>'},
+                        {'msg':'Read <a href="http://www.newyorker.com/">some of the best writing on the net</a>'},
+                        {'msg':'Clean your house/apt/room'},
+                        {'msg':'Wash your car'},
+                        {'msg':'Get your <a href="https://www.idealist.org/en/">volunteer on</a>'},
+                        {'msg':'Go for a bike ride'},
+                        {'msg':'Listen to an episode of <a href="http://www.espn.com/espnradio/podcast/archive/_/id/9545077">Jalen & Jacoby</a>'},
+                        //{'msg':'<a href="http://"></a>'},
+                        /* Last slide below */
+                        //{'msg':''},
+                    ];
+
+                    shuffle(ttd); // give it a random order
+
+                    for (i = 0; i < ttd.length; i++) { 
+                        document.write('<section class="bigtext">'+ttd[i].msg+'</section>');
+                    }
+
+                </script>
+
+                <!-- Final slide -->
+                <section class="bigtext">
+                    That's it -- that's all the ideas we have. 
+                    <a href="mailto:psmithsf@gmail.com?subject=WTFShouldIDoRightNow: I have an idea...">Got one?</a>
+                </section>
+
 			</div>
 		</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+		<script src="https://raw.githubusercontent.com/hakimel/reveal.js/master/js/reveal.js"></script>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                controls: false,
+                overview: false,
+                help: false,
+                mouseWheel: true,
+                transition: 'none',
+                transitionSpeed: 'fast',
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
 			});
+
+            Reveal.configure({
+              keyboard: {
+                /*13: 'next', // go to the next slide when the ENTER key is pressed*/
+                  83: null, // do nothing with uppercase 's' (instead of 'screen' mode or whatever) 
+                //115: null, // do nothing with lowercase 's' (instead of 'screen' mode or whatever)
+                /*27: function() {}, // do something custom when ESC is pressed*/
+                /*32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)*/
+              }
+            });
+
+            Reveal.addEventListener( 'ready', function( event ) {
+                // event.currentSlide, event.indexh, event.indexv
+                //alert('reveal is ready...');
+            } );
+
+            // the third arg says use handler on 'capturing' phase vs. 'bubbling' phase
+            document.body.addEventListener('touchstart', touchHandler, false); 
+
 		</script>
 	</body>
 </html>
