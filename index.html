@@ -40,7 +40,9 @@
             // we want to make sure regular links still work, tho...
             function touchHandler(evt){
                 //alert('event is ' + evt);
+				console.log('event is ' +evt);
                 //alert('touched');
+				console.log('touched');
 
 
                 // if a hyperlink was touched
@@ -53,6 +55,7 @@
                 else{
                     // advance humankind
                     Reveal.right();
+					evt.stopPropagation();
                 }
 
                 //if(Reveal.isReady()){
@@ -264,23 +267,23 @@
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 
-            Reveal.configure({
-              keyboard: {
+            //Reveal.configure({
+              //keyboard: {
                 /*13: 'next', // go to the next slide when the ENTER key is pressed*/
-                  83: null, // do nothing with uppercase 's' (instead of 'screen' mode or whatever) 
+                  //83: null, // do nothing with uppercase 's' (instead of 'screen' mode or whatever) 
                 //115: null, // do nothing with lowercase 's' (instead of 'screen' mode or whatever)
                 /*27: function() {}, // do something custom when ESC is pressed*/
                 /*32: null // don't do anything when SPACE is pressed (i.e. disable a reveal.js default binding)*/
-              }
-            });
+              //}
+            //});
 
-            Reveal.addEventListener( 'ready', function( event ) {
+            //Reveal.addEventListener( 'ready', function( event ) {
                 // event.currentSlide, event.indexh, event.indexv
                 //alert('reveal is ready...');
-            } );
+            //} );
 
             // the third arg says use handler on 'capturing' phase vs. 'bubbling' phase
-            document.body.addEventListener('touchstart', touchHandler, false); 
+            document.body.addEventListener('touchstart', touchHandler, false);
 
 		</script>
 
