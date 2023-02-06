@@ -38,31 +38,31 @@
             }
 
             // we want to make sure regular links still work, tho...
-            function touchHandler(evt){
+            //function touchHandler(evt){
                 //alert('event is ' + evt);
-				console.log('event is ' +evt);
+				//console.log('event is ' +evt);
                 //alert('touched');
-				console.log('touched');
+				//console.log('touched');
 
 
                 // if a hyperlink was touched
-                if(evt.target.tagName.toLowerCase() === 'a')
-                {
+                //if(evt.target.tagName.toLowerCase() === 'a')
+                //{
                     // do nothing, and don't advance to next slide/idea
-                    evt.stopPropagation();
+                    //evt.stopPropagation();
                     //alert('target is: ' + evt.target.href); //this is the url where the anchor tag points to.
-                }
-                else{
+                //}
+                //else{
                     // advance humankind
-                    Reveal.right();
-					evt.stopPropagation();
-                }
+                    //Reveal.right();
+					//evt.stopPropagation();
+                //}
 
                 //if(Reveal.isReady()){
                     //alert('gd');
                     //Reveal.right();
                 //}
-            }
+            //}
 
 
             document.onclick = function(evt) {
